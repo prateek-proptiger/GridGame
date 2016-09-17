@@ -1,0 +1,42 @@
+.game-inputs {
+    margin-left: 10%;
+    padding: 20px;
+}
+
+.game-inputs-row {
+    width: 100%;
+    padding: 5px;
+    display: inline-block;
+}
+
+.game-inputs-row .lft {
+    display: inline-block;
+    width: 40%;
+}
+
+.game-inputs-row .rgt {
+    display: inline-block;
+}
+
+.game-grid {
+    text-align: center;
+}
+
+.game-info-wrapper {
+    text-align: center;
+}
+
+.game-message-wrapper {
+    text-align: center;
+}
+
+.game-grid-cell {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #000;
+}
+.game-grid-cell.colored {
+    background: #f89a00;
+}

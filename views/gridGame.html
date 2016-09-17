@@ -1,0 +1,46 @@
+<div class="grid-game">
+    <div class="game-inputs-wrapper">
+      <ng-form name="gameInputForm" novalidate>
+        <div class="game-inputs">
+            <div class="game-inputs-row">
+              <div class="lft">GridSize: </div>
+              <div class="rgt"><input type="number" name="gridSize" ng-model="gameInput.gridSize" ng-required="true"></div>
+            </div>
+            <div class="game-inputs-row">
+              <div class="lft">No. of cells to uncolor:</div>
+              <div class="rgt"><input type="number" name="cellsToColorCount" ng-model="gameInput.cellsToColorCount" ng-max={{gameInput.gridSize*gameInput.gridSize}} ng-required="true"></div>
+            </div>
+            <div class="game-inputs-row">
+              <div class="lft">Time to uncolor (in secs):</div>
+              <div class="rgt"><input type="number" name="timeToUncolor" ng-model="gameInput.timeToUncolor" ng-required="true"></div>
+            </div>
+            <div class="game-inputs-row">
+              <div class="lft">Chances: </div>
+              <div class="rgt"><input type="number" name="chances" ng-model="gameInput.chances" ng-required="true"></div>
+            </div>
+            <div class="game-inputs-row">
+                <button type="submit" name="start" ng-click="initGame(gameInputForm)">Start</button>
+            </div>
+        </div>
+      </ng-form>
+    </div>
+
+    <div class="game-info-wrapper" ng-if="grid.timer">
+        <div class="game-chances"> {{grid.chances + ' chance(s) left'}} </div>
+        <div class="game-timer"> {{grid.timer + ' sec(s) left'}} </div>
+    </div>
+
+    <div class="game-body-wrapper">
+        <div class="game-body">
+            <div class="game-grid">
+                <div class="game-grid-row" ng-repeat="(x,v) in grid.gridMap">
+                    <div class="game-grid-cell" ng-repeat="(y,val) in v track by $index" ng-click="uncolorCell(x, y)" ng-class="{'colored': grid.gridMap[x][y]}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-message-wrapper">
+        <div class="game-message">{{grid.message}}</div>
+    </div>
+</div>
